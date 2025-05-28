@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { loginUser } from '../../firebase/firebase'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -22,7 +22,8 @@ export default function Login() {
     if (res.code == undefined){
       console.log(res.user.uid);
       //Navigate
-      navigate("/projectes");
+      //navigate("/projectes", {replace:true});
+      return <Navigate to="/" replace />
     } else {
       setError(res.message);
     }

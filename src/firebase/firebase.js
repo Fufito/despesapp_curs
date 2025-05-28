@@ -3,7 +3,7 @@ import { firebaseConfig } from "./config"
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
 import { getFirestore, addDoc, collection, getDocs, onSnapshot, doc, deleteDoc } from "firebase/firestore"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'; 
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'; 
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -72,3 +72,10 @@ export const loginUser = async (email, password) => {
     return error;
   }
 };
+
+export const logoutUser = async ()=>{
+  await signOut(auth);
+}
+
+//Crear mètode per comprovar si tenim usuari loguejat: isUserLoggedIn que crida a onAuthStateChanged
+
