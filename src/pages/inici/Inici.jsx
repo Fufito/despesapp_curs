@@ -28,32 +28,27 @@ export default function Inici() {
     // }, []);
 
     const afegirDespesa = (despesa) => {
-        // setDespeses((despesesPrevies) => {
-
-        //     saveDespesa(despesa)
-        //         .then((idDespesa) => {
-        //             despesa.id = idDespesa;
-
-        //             if (!despesesPrevies) {
-        //                 return [despesa];
-        //             } else {
-        //                 return [...despesesPrevies, despesa];
-        //             }
-        //         })
-        // }
-        // );
-        // setMostraModal(false);
+        saveDespesa(despesa)
+            .then((idDespesa) => {
+                console.log(`Despesa afegida amb id: ${idDespesa}`);
+                despesa.id = idDespesa;
+            })
+            .catch((error) => {
+                console.error("Error afegint la despesa:", error);
+            })
+            .finally(() => {
+                setMostraModal(false); // Tanca el modal, independentment del resultat
+            });
     };
 
     const eliminarDespesa = (id) => {
-        // setDespeses((despesesPrevies) => {
-
-        //     deleteDespesa(id)
-        //         .then(() => {
-        //             return despesesPrevies.filter((despesa) => id !== despesa.id)
-        //         })
-
-        // })
+        deleteDespesa(id)
+            .then(() => {
+                console.log(`Despesa amb id ${id} eliminada correctament`);
+            })
+            .catch((error) => {
+                console.error("Error eliminant la despesa:", error);
+            });
     }
 
     const handleTancar = () => {

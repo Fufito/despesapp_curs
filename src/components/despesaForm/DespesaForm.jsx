@@ -5,7 +5,7 @@ export default function DespesaForm({ afegirDespesa }) {
 
   const [concepte, setConcepte] = useState("");
   const [quantia, setQuantia] = useState("");
-  const [pagatPer, setPagatPer] = useState("");
+  const [pagatPer, setPagatPer] = useState("joan");
 
   const resetForm = () => {
     setConcepte("");
@@ -16,16 +16,14 @@ export default function DespesaForm({ afegirDespesa }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // {concepte: "dinar", quantia: 30.55, pagatPer: "Pere", id: 1}
-
     const despesa = {
       concepte: concepte,
       quantia: quantia,
       pagatPer: pagatPer,
-      id: Math.floor(Math.random() * 1000)
+      //id: Math.floor(Math.random() * 1000)
     }
 
-    console.log(despesa);
+    // console.log(despesa);
 
     afegirDespesa(despesa);
     resetForm();

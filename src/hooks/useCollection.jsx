@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { onGetCollection } from "../firebase/firebase"
-import { QuerySnapshot } from "firebase/firestore";
 
 export const useCollection = (collectionName)=>{
 
